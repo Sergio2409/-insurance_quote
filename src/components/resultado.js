@@ -30,13 +30,13 @@ const TextoCotizacion = styled.p`
 const Resultado = ({cotizacion}) => {   
 
     return ( 
-        (cotizacion == 0) ? 
+        (cotizacion === 0) ? 
         <Mensaje>Elije marca, año y tipo de seguro</Mensaje>
         :
         (
             <ContenedorCotizacion>
                 <TransitionGroup 
-                    component="p"
+                    component="span"
                     className="resultado"
                     >
                     <CSSTransition 
@@ -44,7 +44,7 @@ const Resultado = ({cotizacion}) => {
                         key={cotizacion}
                         timeout={{enter:500, exit: 500}}
                     >
-                        <TextoCotizacion>El total es : ${cotizacion}</TextoCotizacion>
+                        <TextoCotizacion>El total es : $ <span>{cotizacion}</span></TextoCotizacion>
                     </CSSTransition>
                 </TransitionGroup>
             </ContenedorCotizacion>
